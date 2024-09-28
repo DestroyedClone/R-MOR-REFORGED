@@ -82,7 +82,8 @@ namespace EntityStates.RMOR.Primary
                 {
                     this.swingEffectPrefab = SwingStab.swingEffectFocus;
                 }
-                if (!RMORPlugin.ArenaModeActive && hasOVC && this.swingIndex == 1)
+                //if (!RMORPlugin.ArenaModeActive && hasOVC && this.swingIndex == 1)
+                if (hasOVC && this.swingIndex == 1)
                 {
                     this.damageType |= DamageType.BleedOnHit;
                 }

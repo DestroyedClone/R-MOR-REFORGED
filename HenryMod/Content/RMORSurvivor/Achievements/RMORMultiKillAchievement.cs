@@ -5,7 +5,7 @@ using System;
 
 namespace RMORMod.Content.RMOR.Achievements
 {
-    [RegisterAchievement("MoriyaRMORSlashUnlock", "Skills.RMOR.SlashAttack", null, typeof(RMORMultiKillAchievement.RMORMultikillServerAchievement))]
+    [RegisterAchievement("MoriyaRMORSlashUnlock", "Skills.RMOR.SlashAttack", null, 1U, typeof(RMORMultiKillAchievement.RMORMultikillServerAchievement))]
     public class RMORMultiKillAchievement : BaseAchievement
     {
         public override BodyIndex LookUpRequiredBodyIndex()

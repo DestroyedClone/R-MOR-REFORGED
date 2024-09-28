@@ -40,7 +40,7 @@ namespace RMORMod.Content.RMORSurvivor
             bodyNameToken = RMORPlugin.DEVELOPER_PREFIX + "_RMOR_BODY_NAME",
             subtitleNameToken = RMORPlugin.DEVELOPER_PREFIX + "_RMOR_BODY_SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texRMORPortrait.png"),
+            characterPortrait = Modules.Assets.mainAssetBundle.LoadAsset<Texture>("texRMORPortrait.png"),
             bodyColor = new Color(0.556862745f, 0.682352941f, 0.690196078f),
 
             crosshair = LegacyResourcesAPI.Load<GameObject>("prefabs/crosshair/captaincrosshair"),
@@ -70,7 +70,7 @@ namespace RMORMod.Content.RMORSurvivor
                 survivorUnlock.cachedName = "Characters.RMOR";
                 survivorUnlock.nameToken = "ACHIEVEMENT_MORIYARMORSURVIVORUNLOCK_NAME";
                 survivorUnlock.hidden = true;
-                survivorUnlock.achievementIcon = Assets.mainAssetBundle.LoadAsset<Sprite>("texRMORUnlock.png");
+                survivorUnlock.achievementIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texRMORUnlock.png");
                 Modules.ContentPacks.unlockableDefs.Add(survivorUnlock);
             }
 
@@ -149,11 +149,11 @@ namespace RMORMod.Content.RMORSurvivor
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] {
             new CustomRendererInfo {
                 childName = "RMORBody",
-                material = Assets.mainAssetBundle.LoadAsset<Material>("matRMOR"),
+                material = Modules.Assets.mainAssetBundle.LoadAsset<Material>("matRMOR"),
             },
             new CustomRendererInfo {
                 childName = "Drone",
-                material = Assets.mainAssetBundle.LoadAsset<Material>("matRMORDrone"),
+                material = Modules.Assets.mainAssetBundle.LoadAsset<Material>("matRMORDrone"),
             },
         };
 
@@ -339,8 +339,8 @@ namespace RMORMod.Content.RMORSurvivor
         {
             DroneSetup.Init();
 
-            Components.DroneProjectile.DroneDamageController.startSound = Assets.CreateNetworkSoundEventDef("Play_RMOR_Drill");
-            Components.DroneProjectile.DroneDamageController.hitSound = Assets.CreateNetworkSoundEventDef("Play_treeBot_m1_impact");
+            Components.DroneProjectile.DroneDamageController.startSound = Modules.Assets.CreateNetworkSoundEventDef("Play_RMOR_Drill");
+            Components.DroneProjectile.DroneDamageController.hitSound = Modules.Assets.CreateNetworkSoundEventDef("Play_treeBot_m1_impact");
 
             EntityStateMachine stateMachine = bodyPrefab.AddComponent<EntityStateMachine>();
             stateMachine.customName = "DroneLauncher";
@@ -428,16 +428,16 @@ namespace RMORMod.Content.RMORSurvivor
 
             Skilldefs.SpecialChargeSlashScepter = scepterHammerSkill;
 
-            if (RMORPlugin.ScepterClassicLoaded) ClassicScepterCompat();
+            //if (RMORPlugin.ScepterClassicLoaded) ClassicScepterCompat();
             if (RMORPlugin.ScepterStandaloneLoaded) StandaloneScepterCompat();
         }
 
-        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+        /*[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         private void ClassicScepterCompat()
         {
             ThinkInvisible.ClassicItems.Scepter.instance.RegisterScepterSkill(Skilldefs.SpecialChargeCannonScepter, "RMORBody", SkillSlot.Special, Skilldefs.SpecialChargeCannon);
             ThinkInvisible.ClassicItems.Scepter.instance.RegisterScepterSkill(Skilldefs.SpecialChargeSlashScepter, "RMORBody", SkillSlot.Special, Skilldefs.SpecialChargeSlash);
-        }
+        }*/
 
 
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
@@ -461,7 +461,7 @@ namespace RMORMod.Content.RMORSurvivor
             #region DefaultSkin
             //this creates a SkinDef with all default fields
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef("DEFAULT_SKIN",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texRMORSkinIconDefault"),
+                Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texRMORSkinIconDefault"),
                 defaultRendererinfos,
                 model);
 
@@ -477,7 +477,7 @@ namespace RMORMod.Content.RMORSurvivor
             #region MasterySkin
 
             //creating a new skindef as we did before
-            Sprite masteryIcon = Assets.mainAssetBundle.LoadAsset<Sprite>("texRMORSkinIconMastery");
+            Sprite masteryIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texRMORSkinIconMastery");
             SkinDef masterySkin = Modules.Skins.CreateSkinDef(RMOR_PREFIX + "MASTERY_SKIN_NAME",
                 masteryIcon,
                 defaultRendererinfos,
@@ -544,8 +544,8 @@ namespace RMORMod.Content.RMORSurvivor
             });
             #endregion
 
-            masterySkin.rendererInfos[0].defaultMaterial = Assets.mainAssetBundle.LoadAsset<Material>("matRMORMastery");
-            masterySkin.rendererInfos[1].defaultMaterial = Assets.mainAssetBundle.LoadAsset<Material>("matRMORDroneMastery");
+            masterySkin.rendererInfos[0].defaultMaterial = Modules.Assets.mainAssetBundle.LoadAsset<Material>("matRMORMastery");
+            masterySkin.rendererInfos[1].defaultMaterial = Modules.Assets.mainAssetBundle.LoadAsset<Material>("matRMORDroneMastery");
 
             UnlockableDef masteryUnlockableDef = ScriptableObject.CreateInstance<UnlockableDef>();
             masteryUnlockableDef.cachedName = "Skins.RMOR.Mastery";

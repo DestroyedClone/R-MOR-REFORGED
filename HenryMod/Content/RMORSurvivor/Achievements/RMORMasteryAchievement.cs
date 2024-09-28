@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RMORMod.Content.RMOR.Achievements
 {
-    [RegisterAchievement("MoriyaRMORClearGameMonsoon", "Skins.RMOR.Mastery", null, null)]
+    [RegisterAchievement("MoriyaRMORClearGameMonsoon", "Skins.RMOR.Mastery", null, 10U, null)]
     public class RMORMasteryAchievement : BasePerSurvivorClearGameMonsoonAchievement
     {
         public override BodyIndex LookUpRequiredBodyIndex()

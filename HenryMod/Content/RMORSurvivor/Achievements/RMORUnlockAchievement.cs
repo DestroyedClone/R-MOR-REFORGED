@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RMORMod.Content.RMOR.Achievements
 {
-	[RegisterAchievement("MoriyaRMORSurvivorUnlock", "Characters.RMOR", null, null)]
+	[RegisterAchievement("MoriyaRMORSurvivorUnlock", "Characters.RMOR", null, 3U, null)]
 	public class RMORSurvivorUnlockAchievement : BaseAchievement
 	{
         public override void OnInstall()

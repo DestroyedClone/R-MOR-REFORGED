@@ -5,7 +5,7 @@ using System;
 
 namespace RMORMod.Content.RMOR.Achievements
 {
-    [RegisterAchievement("MoriyaRMORSkewerUnlock", "Skills.RMOR.Skewer", null, null)]
+    [RegisterAchievement("MoriyaRMORSkewerUnlock", "Skills.RMOR.Skewer", null, 1U, null)]
     public class SkewerAchievement : BaseAchievement
     {
         public override BodyIndex LookUpRequiredBodyIndex()

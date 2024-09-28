@@ -84,7 +84,7 @@ namespace RMORMod.Content.RMORSurvivor
 
             droneProjectile.GetComponent<ProjectileController>().ghostPrefab = droneProjectileGhost;
 
-            Material droneMat = Assets.mainAssetBundle.LoadAsset<Material>("DroneBody");
+            Material droneMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("DroneBody");
             Modules.Materials.SetEmission(droneMat, 3f, Color.white);
             droneProjectileGhost.GetComponentInChildren<SkinnedMeshRenderer>().material = droneMat;
 
@@ -166,7 +166,7 @@ namespace RMORMod.Content.RMORSurvivor
 
             droneFollower.layer = LayerIndex.noCollision.intVal;
 
-            Material droneMat = Assets.mainAssetBundle.LoadAsset<Material>("matRMORDrone");
+            Material droneMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("matRMORDrone");
             Modules.Materials.SetEmission(droneMat, 3f, Color.white);
             droneFollower.GetComponentInChildren<SkinnedMeshRenderer>().material = droneMat;
 

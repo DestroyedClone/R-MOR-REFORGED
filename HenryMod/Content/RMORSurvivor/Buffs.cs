@@ -26,7 +26,7 @@ namespace RMORMod.Content.RMORSurvivor
                        false,
                        false,
                        new Color(255f / 255f, 0f / 255f, 84f / 255f),
-                       Assets.mainAssetBundle.LoadAsset<Sprite>("texBuffSwarmAssault.png")
+                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texBuffSwarmAssault.png")
                        );
                 RecalculateStatsAPI.GetStatCoefficients += RMORPassiveHook;
             }

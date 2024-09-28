@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RMORMod.Content.RMOR.Achievements
 {
-    [RegisterAchievement("MoriyaRMOROverclockUnlock", "Skills.RMOR.Overclock", null, null)]
+    [RegisterAchievement("MoriyaRMOROverclockUnlock", "Skills.RMOR.Overclock", null, 1U, null)]
     public class OverclockAchievement : BaseAchievement
 	{
         public override void OnInstall()

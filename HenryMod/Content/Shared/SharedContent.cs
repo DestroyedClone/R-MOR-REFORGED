@@ -102,8 +102,8 @@ namespace RMORMod.Content.Shared
 
             EntityStates.RMOR.Utility.BeginOverclock.overlayMaterial = UnityEngine.Material.Instantiate(LegacyResourcesAPI.Load<Material>("Materials/matWolfhatOverlay"));
 
-            EntityStates.RMOR.Utility.BeginOverclock.texGauge = Assets.mainAssetBundle.LoadAsset<Texture2D>("texGauge.png");
-            EntityStates.RMOR.Utility.BeginOverclock.texGaugeArrow = Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeArrow.png");
+            EntityStates.RMOR.Utility.BeginOverclock.texGauge = Modules.Assets.mainAssetBundle.LoadAsset<Texture2D>("texGauge.png");
+            EntityStates.RMOR.Utility.BeginOverclock.texGaugeArrow = Modules.Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeArrow.png");
             RMORMod.Content.Shared.Components.Body.OverclockController.ovcDef = ovcSkill;
 
             SkillDef focusSkill = SkillDef.CreateInstance<SkillDef>();
@@ -133,11 +133,11 @@ namespace RMORMod.Content.Shared
             EntityStates.RMOR.Utility.BeginFocus.overlayMaterial = UnityEngine.Material.Instantiate(LegacyResourcesAPI.Load<Material>("Materials/matFullCrit"));
             EntityStates.RMOR.Utility.BeginFortify.overlayMaterial = UnityEngine.Material.Instantiate(LegacyResourcesAPI.Load<Material>("Materials/matFullCrit"));
 
-            EntityStates.RMOR.Utility.BeginFocus.texGaugeNemesis = Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeNemesis.png");
-            EntityStates.RMOR.Utility.BeginFocus.texGaugeArrowNemesis = Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeArrowNemesis.png");
+            EntityStates.RMOR.Utility.BeginFocus.texGaugeNemesis = Modules.Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeNemesis.png");
+            EntityStates.RMOR.Utility.BeginFocus.texGaugeArrowNemesis = Modules.Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeArrowNemesis.png");
 
-            EntityStates.RMOR.Utility.BeginFortify.texGaugeFortify = Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeFortify.png");
-            EntityStates.RMOR.Utility.BeginFortify.texGaugeArrowFortify = Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeArrowFortify.png");
+            EntityStates.RMOR.Utility.BeginFortify.texGaugeFortify = Modules.Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeFortify.png");
+            EntityStates.RMOR.Utility.BeginFortify.texGaugeArrowFortify = Modules.Assets.mainAssetBundle.LoadAsset<Texture2D>("texGaugeArrowFortify.png");
         }
     }
 }
