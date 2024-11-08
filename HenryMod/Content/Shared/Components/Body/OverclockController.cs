@@ -56,7 +56,7 @@ namespace RMORMod.Content.Shared.Components.Body
             rectGauge.width = height * texGauge.width * gaugeScale / 1080f;
             rectGauge.height = height * texGauge.height * gaugeScale / 1080f;
 
-            
+
             rectGauge.position = new Vector2(width / 2f - rectGauge.width / 2f, height / 2f + rectGauge.height * 2f);
 
             rectGaugeArrow.width = height * texGaugeArrow.width * gaugeScale / 1080f;
