@@ -39,7 +39,6 @@ namespace RMORMod
         public const string DEVELOPER_PREFIX = "MORIYA";
 
         public static RMORPlugin instance;
-        public static PluginInfo pluginInfo;
 
         public static bool ScepterStandaloneLoaded = false;
         //public static bool ScepterClassicLoaded = false;
@@ -50,7 +49,7 @@ namespace RMORMod
 
         private void Awake()
         {
-            pluginInfo = Info;
+            Files.PluginInfo = Info;
             instance = this;
 
             CheckDependencies();
