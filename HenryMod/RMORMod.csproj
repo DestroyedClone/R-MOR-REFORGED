@@ -14,15 +14,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DroneSkillDef.cs" />
     <Compile Remove="SkillStates\BaseStates\BaseTimedSkillState.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="HAND_Overclocked_Soundbank.bnk" />
     <None Remove="HenryBank.bnk" />
-    <None Remove="libs\SoftDependencies\ClassicItems.dll" />
-    <None Remove="libs\SoftDependencies\KingKombatArena.dll" />
-    <None Remove="libs\SoftDependencies\TILER2.dll" />
     <None Remove="Modules\Characters\Henry.cs~RF6221a098.TMP" />
     <None Remove="rmorassetbundle" />
   </ItemGroup>
