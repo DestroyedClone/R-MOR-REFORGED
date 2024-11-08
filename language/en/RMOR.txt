@@ -12,7 +12,7 @@
 	"MORIYA_RMOR_BODY_PASSIVE_DESC" : "<style=cIsDamage>Increase attack speed</style> by <style=cIsDamage>5%</style> for every <style=cIsUtility>drone</style> on your team.",\
 
 	"MORIYA_RMOR_BODY_PRIMARY_NAME" : "ERADICATE",
-	"MORIYA_RMOR_BODY_PRIMARY_DESC" : "Shoot a missile which explodes on impact for <style=cIsDamage>390% damage</style>. While <style=cIsHealing>FORTIFY</style> is active, missiles fly faster for <style=cIsUtilitye>Stun on hit</style>",
+	"MORIYA_RMOR_BODY_PRIMARY_DESC" : "Shoot a missile which explodes on impact for <style=cIsDamage>390% damage</style>. While <style=cIsHealing>FORTIFY</style> is active, missiles fly faster for <style=cIsUtility>Stun on hit</style>",
 	"MORIYA_RMOR_BODY_PRIMARY_GUN_NAME" : "ASSAULT",
 	"MORIYA_RMOR_BODY_PRIMARY_GUN_DESC" : "Rapidly fire twin gatling guns for <style=cIsDamage>90% damage</style>.",
 	"MORIYA_RMOR_BODY_PRIMARY_BLADE_NAME" : "SKEWER",
