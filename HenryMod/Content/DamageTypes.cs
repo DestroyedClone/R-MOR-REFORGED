@@ -11,7 +11,7 @@ namespace RMORMod.Content
     {
         public static DamageAPI.ModdedDamageType ResetVictimForce;
         public static DamageAPI.ModdedDamageType HANDPrimaryPunch;
-        public static DamageAPI.ModdedDamageType HANDPrimaryHammer;
+        //public static DamageAPI.ModdedDamageType HANDPrimaryHammer;
         public static DamageAPI.ModdedDamageType HANDSecondary;
         public static DamageAPI.ModdedDamageType HANDSecondaryScepter;
         public static DamageAPI.ModdedDamageType SquashOnKill;
@@ -26,7 +26,7 @@ namespace RMORMod.Content
 
             DamageTypes.ResetVictimForce = DamageAPI.ReserveDamageType();
             DamageTypes.HANDPrimaryPunch = DamageAPI.ReserveDamageType();
-            DamageTypes.HANDPrimaryHammer = DamageAPI.ReserveDamageType();
+            //DamageTypes.HANDPrimaryHammer = DamageAPI.ReserveDamageType();
             DamageTypes.HANDSecondary = DamageAPI.ReserveDamageType();
             DamageTypes.HANDSecondaryScepter = DamageAPI.ReserveDamageType();
             DamageTypes.SquashOnKill = DamageAPI.ReserveDamageType();
