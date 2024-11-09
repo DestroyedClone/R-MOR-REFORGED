@@ -37,6 +37,7 @@ namespace RMORMod.Modules
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         public static void RiskOfOptionsCompat()
         {
+            ModSettingsManager.SetModIcon(Assets.mainAssetBundle.LoadAsset<Sprite>("modicon"));
             ModSettingsManager.AddOption(new RiskOfOptions.Options.KeyBindOption(KeybindEmote1));
             ModSettingsManager.AddOption(new RiskOfOptions.Options.KeyBindOption(KeybindEmote2));
             ModSettingsManager.AddOption(new RiskOfOptions.Options.KeyBindOption(KeybindEmoteCSS));
