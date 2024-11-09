@@ -6,6 +6,7 @@ using R2API;
 using RMORMod.Content.RMORSurvivor;
 using RMORMod.Content;
 using RMORMod.Content.Shared.Components.Body;
+using RMORMod.Modules;
 
 namespace EntityStates.RMOR.Special
 {

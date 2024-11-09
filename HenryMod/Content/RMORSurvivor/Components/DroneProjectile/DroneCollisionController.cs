@@ -63,7 +63,7 @@ namespace RMORMod.Content.RMORSurvivor.Components.DroneProjectile
                 return;
             }
         }
-        
+
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.layer == LayerIndex.world.intVal)

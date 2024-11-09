@@ -25,8 +25,6 @@ namespace RMORMod.Modules
         internal static void Initialize()
         {
             LoadAssetBundle();
-            SwapShadersGhetti();
-            LoadSoundbank();
             PopulateAssets();
         }
 
@@ -36,69 +34,13 @@ namespace RMORMod.Modules
             {
                 if (mainAssetBundle == null)
                 {
-                    using (var assetStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.{assetbundleName}"))
-                    {
-                        mainAssetBundle = AssetBundle.LoadFromStream(assetStream);
-                    }
+                    mainAssetBundle = AssetBundle.LoadFromFile(Files.GetPathToFile("AssetBundles", "rmorassetbundle"));
                 }
             }
             catch (Exception e)
             {
                 Log.Error("Failed to load assetbundle. Make sure your assetbundle name is setup correctly\n" + e);
                 return;
-            }
-        }
-        private static void SwapShadersGhetti()
-        {
-            Shader cloudRemap = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGCloudRemap.shader").WaitForCompletion();
-            Shader standard = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGStandard.shader").WaitForCompletion();
-            Shader triplanar = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGTriplanarTerrainBlend.shader").WaitForCompletion();
-
-            var materials = mainAssetBundle.LoadAllAssets<Material>();
-            foreach (Material mat in materials)
-            {
-                switch (mat.shader.name)
-                {
-                    case "StubbedRoR2/Base/Shaders/HGCloudRemap": // name may differ
-                        mat.shader = cloudRemap;
-                        break;
-
-                    case "StubbedRoR2/Base/Shaders/HGStandard": // name may differ
-                        mat.shader = standard;
-                        break;
-                    case "StubbedRoR2/Base/Shaders/HGTriplanarTerrainBlend": // name may differ
-                        mat.shader = triplanar;
-                        break;
-                }
-            }
-        }
-        private static void SwapShadersFromMaterials()
-        {
-            var shaders = mainAssetBundle.LoadAllAssets<Shader>().Where(shader => shader.name.StartsWith("StubbedShader"));
-            foreach (Shader shader in shaders)
-            {
-                try
-                {
-                    SwapShader(shader);
-                }
-                catch (Exception e) { Debug.LogError(e); }
-            }
-        }
-        private static async void SwapShader(Shader shader)
-        {
-            var shaderName = shader.name.Substring("Stubbed".Length);
-            var adressablePath = $"{shaderName}.shader";
-            shader = Addressables.LoadAssetAsync<Shader>(adressablePath).WaitForCompletion();
-        }
-
-        internal static void LoadSoundbank()
-        {                                                                
-            //soundbank currently broke, but this is how you should load yours
-            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.HAND_Overclocked_Soundbank.bnk"))
-            {
-                byte[] array = new byte[manifestResourceStream2.Length];
-                manifestResourceStream2.Read(array, 0, array.Length);
-                SoundAPI.SoundBanks.Add(array);
             }
         }
 
@@ -158,7 +100,7 @@ namespace RMORMod.Modules
         internal static NetworkSoundEventDef CreateNetworkSoundEventDef(string eventName)
         {
             NetworkSoundEventDef networkSoundEventDef = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
-            networkSoundEventDef.akId = AkSoundEngine.GetIDFromString(eventName);
+            //networkSoundEventDef.akId = AkSoundEngine.GetIDFromString(eventName);
             networkSoundEventDef.eventName = eventName;
 
             Modules.Content.AddNetworkSoundEventDef(networkSoundEventDef);
@@ -172,8 +114,6 @@ namespace RMORMod.Modules
 
             foreach (Renderer i in objectToConvert.GetComponentsInChildren<Renderer>())
             {
-                if (i is ParticleSystemRenderer)
-                    continue;
                 i?.material?.SetHopooMaterial();
             }
         }
@@ -198,9 +138,11 @@ namespace RMORMod.Modules
         }
 
 
-        public static GameObject LoadSurvivorModel(string modelName) {
+        public static GameObject LoadSurvivorModel(string modelName)
+        {
             GameObject model = mainAssetBundle.LoadAsset<GameObject>(modelName);
-            if (model == null) {
+            if (model == null)
+            {
                 Log.Error("Trying to load a null model- check to see if the BodyName in your code matches the prefab name of the object in Unity\nFor Example, if your prefab in unity is 'mdlHenry', then your BodyName must be 'Henry'");
                 return null;
             }

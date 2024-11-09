@@ -23,11 +23,11 @@ namespace RMORMod.Content.RMORSurvivor
         private static GameObject CreateAllyIndicator()
         {
             GameObject indicator = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/PassiveHealing/WoodSpriteIndicator.prefab").WaitForCompletion().InstantiateClone("RMORMod_AllyIndicator", false);
-            Object.Destroy(indicator.GetComponentInChildren<InputBindingDisplayController>());
-            Object.Destroy(indicator.GetComponentInChildren<TMPro.TextMeshPro>());
+            UnityEngine.Object.Destroy(indicator.GetComponentInChildren<RoR2.InputBindingDisplayController>());
+            UnityEngine.Object.Destroy(indicator.GetComponentInChildren<TMPro.TextMeshPro>());
 
             Rewired.ComponentControls.Effects.RotateAroundAxis rot = indicator.GetComponentInChildren<Rewired.ComponentControls.Effects.RotateAroundAxis>();
-            Object.Destroy(rot);
+            UnityEngine.Object.Destroy(rot);
 
             SpriteRenderer sr = indicator.GetComponentInChildren<SpriteRenderer>();
             sr.sprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texIndicatorDroneHeal.png");
@@ -56,9 +56,9 @@ namespace RMORMod.Content.RMORSurvivor
         {
             GameObject droneProjectile = LegacyResourcesAPI.Load<GameObject>("prefabs/projectiles/EngiHarpoon").InstantiateClone("RMORMod_DroneProjectile", true);
 
-           // droneProjectileGhost = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DronePrefab").InstantiateClone("RMORMod_DroneProjectileGhost", false);
-
             Shader hotpoo = LegacyResourcesAPI.Load<Shader>("Shaders/Deferred/hgstandard");
+            //droneProjectileGhost = PrefabAPI.InstantiateClone(RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DronePrefab"), "HANDMod_DroneProjectileGhost", false);
+
 
             MeshRenderer[] mr = droneProjectileGhost.GetComponentsInChildren<MeshRenderer>();
             foreach (MeshRenderer m in mr)
@@ -84,20 +84,20 @@ namespace RMORMod.Content.RMORSurvivor
 
             droneProjectile.GetComponent<ProjectileController>().ghostPrefab = droneProjectileGhost;
 
-            Material droneMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("DroneBody");
+            Material droneMat = Modules.Materials.CreateHopooMaterial("DroneBody");
             Modules.Materials.SetEmission(droneMat, 3f, Color.white);
             droneProjectileGhost.GetComponentInChildren<SkinnedMeshRenderer>().material = droneMat;
 
             Collider[] collidersG = droneProjectileGhost.GetComponentsInChildren<Collider>();
             foreach (Collider cG in collidersG)
             {
-                Object.Destroy(cG);
+                UnityEngine.Object.Destroy(cG);
             }
 
             RMORMod.Modules.ContentPacks.projectilePrefabs.Add(droneProjectile);
 
-            Object.Destroy(droneProjectile.GetComponent<ApplyTorqueOnStart>());
-            Object.Destroy(droneProjectile.GetComponent<MissileController>());
+            UnityEngine.Object.Destroy(droneProjectile.GetComponent<ApplyTorqueOnStart>());
+            UnityEngine.Object.Destroy(droneProjectile.GetComponent<MissileController>());
             ProjectileSteerTowardTarget pst = droneProjectile.AddComponent<ProjectileSteerTowardTarget>();
             pst.yAxisOnly = false;
             pst.rotationSpeed = 360f;
@@ -120,9 +120,9 @@ namespace RMORMod.Content.RMORSurvivor
             pstf.ignoreAir = false;
             pstf.flierAltitudeTolerance = Mathf.Infinity;
 
-            Object.Destroy(droneProjectile.GetComponent<AkEvent>());
-            Object.Destroy(droneProjectile.GetComponent<AkGameObj>());
-            Object.Destroy(droneProjectile.GetComponent<ProjectileSingleTargetImpact>());
+            UnityEngine.Object.Destroy(droneProjectile.GetComponent<AkEvent>());
+            UnityEngine.Object.Destroy(droneProjectile.GetComponent<AkGameObj>());
+            UnityEngine.Object.Destroy(droneProjectile.GetComponent<ProjectileSingleTargetImpact>());
 
             ProjectileStickOnImpact stick = droneProjectile.AddComponent<ProjectileStickOnImpact>();
             stick.ignoreWorld = true;
@@ -133,7 +133,7 @@ namespace RMORMod.Content.RMORSurvivor
             Collider[] colliders = droneProjectile.GetComponentsInChildren<Collider>();
             foreach (Collider c in colliders)
             {
-                Object.Destroy(c);
+                UnityEngine.Object.Destroy(c);
             }
             SphereCollider sc = droneProjectile.AddComponent<SphereCollider>();
             sc.radius = 0.6f;
@@ -153,7 +153,7 @@ namespace RMORMod.Content.RMORSurvivor
         private static GameObject CreateDroneFollower()
         {
             Shader hotpoo = LegacyResourcesAPI.Load<Shader>("Shaders/Deferred/hgstandard");
-            GameObject droneFollower = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("RMORFollowerPrefab").InstantiateClone("RMORMod_DroneFollower", false);
+            GameObject droneFollower = PrefabAPI.InstantiateClone(RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DroneFollowerPrefab"), "RMORMod_DroneFollower", false);
 
             MeshRenderer[] meshes = droneFollower.GetComponentsInChildren<MeshRenderer>();
             foreach (MeshRenderer m in meshes)
@@ -166,7 +166,7 @@ namespace RMORMod.Content.RMORSurvivor
 
             droneFollower.layer = LayerIndex.noCollision.intVal;
 
-            Material droneMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("matRMORDrone");
+            Material droneMat = Modules.Materials.CreateHopooMaterial("DroneBody");
             Modules.Materials.SetEmission(droneMat, 3f, Color.white);
             droneFollower.GetComponentInChildren<SkinnedMeshRenderer>().material = droneMat;
 

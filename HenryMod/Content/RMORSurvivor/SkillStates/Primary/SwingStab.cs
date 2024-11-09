@@ -7,6 +7,9 @@ using UnityEngine;
 using RMORMod.Content;
 using RMORMod.Content.Shared.Components.Body;
 using RMORMod;
+using BepInEx.Configuration;
+using UnityEngine.Networking;
+using RMORMod.Modules;
 
 namespace EntityStates.RMOR.Primary
 {
@@ -41,7 +44,7 @@ namespace EntityStates.RMOR.Primary
 
             this.muzzleString = swingIndex == 1 ? "HandL" : "HandR";    //Anim names are reversed. This is correct.
             //this.hitEffectPrefab = SwingPunch.hitEffect;  //Why does this play the DRONE sound?
-            if(SwingStab.networkHitSound != null) this.impactSound = networkHitSound.index;
+            if (SwingStab.networkHitSound != null) this.impactSound = networkHitSound.index;
 
             this.damageType = DamageType.Generic;
             this.hitHopVelocity = 8f;
@@ -82,8 +85,7 @@ namespace EntityStates.RMOR.Primary
                 {
                     this.swingEffectPrefab = SwingStab.swingEffectFocus;
                 }
-                //if (!RMORPlugin.ArenaModeActive && hasOVC && this.swingIndex == 1)
-                if (hasOVC && this.swingIndex == 1)
+                if (!RMORPlugin.ArenaModeActive && hasOVC && this.swingIndex == 1)
                 {
                     this.damageType |= DamageType.BleedOnHit;
                 }
@@ -174,11 +176,11 @@ namespace EntityStates.RMOR.Primary
 
             if (this.swingIndex == 1)
             {
-                base.PlayCrossfade(animationLayer, "StabR", "Punch.playbackRate", this.duration, 0.2f);
+                base.PlayCrossfade(animationLayer, "StabR", "Punch.playbackRate", this.duration, 0.2f * duration);
             }
             else
             {
-                base.PlayCrossfade(animationLayer, "StabL", "Punch.playbackRate", this.duration, 0.2f);
+                base.PlayCrossfade(animationLayer, "StabL", "Punch.playbackRate", this.duration, 0.2f * duration);
             }
         }
 

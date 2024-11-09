@@ -21,7 +21,7 @@ namespace RMORMod.Content.RMORSurvivor
             if (!RMORPassive)
             {
                 RMORPassive = Modules.Buffs.CreateBuffDef(
-                       "SWARM_ASSAULT",
+                       "RMORMod_SWARM_ASSAULT",
                        true,
                        false,
                        false,

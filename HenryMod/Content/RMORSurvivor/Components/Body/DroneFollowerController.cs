@@ -15,12 +15,14 @@ namespace RMORMod.Content.RMORSurvivor.Components.Body
         {
             if (initialized) return;
             initialized = true;
+
             On.RoR2.ModelSkinController.ApplySkin += ModelSkinController_ApplySkin;
         }
 
         private static void ModelSkinController_ApplySkin(On.RoR2.ModelSkinController.orig_ApplySkin orig, ModelSkinController self, int skinIndex)
         {
             orig(self, skinIndex);
+            if (!self.characterModel || !self.characterModel.body) return;
             if (self.characterModel.body.TryGetComponent(out DroneFollowerController controller))
             {
                 controller.ApplyDroneSkins();

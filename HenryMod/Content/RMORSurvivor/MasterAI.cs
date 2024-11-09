@@ -14,7 +14,7 @@ namespace RMORMod.Content.RMORSurvivor
             if (initialized) return;
             initialized = true;
 
-            GameObject masterObject = LegacyResourcesAPI.Load<GameObject>("prefabs/charactermasters/commandomonstermaster").InstantiateClone("RMORMonsterMaster", true);
+            GameObject masterObject = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("prefabs/charactermasters/commandomonstermaster"), "RMORMonsterMaster", true);
             Modules.ContentPacks.masterPrefabs.Add(masterObject);
 
             CharacterMaster cm = masterObject.GetComponent<CharacterMaster>();
@@ -23,7 +23,7 @@ namespace RMORMod.Content.RMORSurvivor
             Component[] toDelete = masterObject.GetComponents<AISkillDriver>();
             foreach (AISkillDriver asd in toDelete)
             {
-                Object.Destroy(asd);
+                UnityEngine.Object.Destroy(asd);
             }
 
             AISkillDriver specialSelfHeal = masterObject.AddComponent<AISkillDriver>();
@@ -86,7 +86,7 @@ namespace RMORMod.Content.RMORSurvivor
 
             AISkillDriver utility = masterObject.AddComponent<AISkillDriver>();
             utility.skillSlot = SkillSlot.Utility;
-            utility.requiredSkill = Shared.SkillDefs.UtilityOverclock;
+            utility.requiredSkill = Content.Shared.SkillDefs.UtilityOverclock;
             utility.requireSkillReady = true;
             utility.requireEquipmentReady = false;
             utility.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
@@ -106,7 +106,7 @@ namespace RMORMod.Content.RMORSurvivor
 
             AISkillDriver utilityFocus = masterObject.AddComponent<AISkillDriver>();
             utilityFocus.skillSlot = SkillSlot.Utility;
-            utilityFocus.requiredSkill = Shared.SkillDefs.UtilityFocus;
+            utilityFocus.requiredSkill = Content.Shared.SkillDefs.UtilityFocus;
             utilityFocus.requireSkillReady = true;
             utilityFocus.requireEquipmentReady = false;
             utilityFocus.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;

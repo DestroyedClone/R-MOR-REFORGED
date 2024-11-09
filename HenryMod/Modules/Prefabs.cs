@@ -19,7 +19,8 @@ namespace RMORMod.Modules {
             GameObject model = Assets.LoadSurvivorModel(displayModelName);
 
             CharacterModel characterModel = model.GetComponent<CharacterModel>();
-            if (!characterModel) {
+            if (!characterModel)
+            {
                 characterModel = model.AddComponent<CharacterModel>();
             }
             characterModel.baseRendererInfos = prefab.GetComponentInChildren<CharacterModel>().baseRendererInfos;
@@ -47,7 +48,7 @@ namespace RMORMod.Modules {
                 model = Assets.LoadSurvivorModel(modelName);
                 if (model == null) model = newBodyPrefab.GetComponentInChildren<CharacterModel>().gameObject;
 
-                    modelBaseTransform = AddCharacterModelToSurvivorBody(newBodyPrefab, model.transform, bodyInfo);
+                modelBaseTransform = AddCharacterModelToSurvivorBody(newBodyPrefab, model.transform, bodyInfo);
             }
 
             #region CharacterBody
@@ -133,9 +134,10 @@ namespace RMORMod.Modules {
 
         #region ModelSetup
 
-        private static Transform AddCharacterModelToSurvivorBody(GameObject bodyPrefab, Transform modelTransform, BodyInfo bodyInfo) 
+        private static Transform AddCharacterModelToSurvivorBody(GameObject bodyPrefab, Transform modelTransform, BodyInfo bodyInfo)
         {
-            for (int i = bodyPrefab.transform.childCount - 1; i >= 0; i--) {
+            for (int i = bodyPrefab.transform.childCount - 1; i >= 0; i--)
+            {
 
                 Object.DestroyImmediate(bodyPrefab.transform.GetChild(i).gameObject);
             }
@@ -163,7 +165,8 @@ namespace RMORMod.Modules {
             return modelBase.transform;
         }
         public static CharacterModel SetupCharacterModel(GameObject prefab) => SetupCharacterModel(prefab, null);
-        public static CharacterModel SetupCharacterModel(GameObject prefab, CustomRendererInfo[] customInfos) {
+        public static CharacterModel SetupCharacterModel(GameObject prefab, CustomRendererInfo[] customInfos)
+        {
 
             CharacterModel characterModel = prefab.GetComponent<ModelLocator>().modelTransform.gameObject.GetComponent<CharacterModel>();
             bool preattached = characterModel != null;
@@ -176,51 +179,67 @@ namespace RMORMod.Modules {
             characterModel.invisibilityCount = 0;
             characterModel.temporaryOverlays = new List<TemporaryOverlayInstance>();
 
-            if (!preattached) {
+            if (!preattached)
+            {
                 SetupCustomRendererInfos(characterModel, customInfos);
             }
-            else {
+            else
+            {
                 SetupPreAttachedRendererInfos(characterModel);
             }
             return characterModel;
         }
 
-        public static void SetupPreAttachedRendererInfos(CharacterModel characterModel) {
-            for (int i = 0; i < characterModel.baseRendererInfos.Length; i++) {
+        public static void SetupPreAttachedRendererInfos(CharacterModel characterModel)
+        {
+            for (int i = 0; i < characterModel.baseRendererInfos.Length; i++)
+            {
                 if (characterModel.baseRendererInfos[i].defaultMaterial == null)
                     characterModel.baseRendererInfos[i].defaultMaterial = characterModel.baseRendererInfos[i].renderer.sharedMaterial;
                 characterModel.baseRendererInfos[i].defaultMaterial.SetHopooMaterial();
             }
         }
 
-        public static void SetupCustomRendererInfos(CharacterModel characterModel, CustomRendererInfo[] customInfos) {
+        public static void SetupCustomRendererInfos(CharacterModel characterModel, CustomRendererInfo[] customInfos)
+        {
 
             ChildLocator childLocator = characterModel.GetComponent<ChildLocator>();
-            if (!childLocator) {
+            if (!childLocator)
+            {
                 Log.Error("Failed CharacterModel setup: ChildLocator component does not exist on the model");
                 return;
             }
 
             List<CharacterModel.RendererInfo> rendererInfos = new List<CharacterModel.RendererInfo>();
 
-            for (int i = 0; i < customInfos.Length; i++) {
-                if (!childLocator.FindChild(customInfos[i].childName)) {
+            for (int i = 0; i < customInfos.Length; i++)
+            {
+                if (!childLocator.FindChild(customInfos[i].childName))
+                {
                     Log.Error("Trying to add a RendererInfo for a renderer that does not exist: " + customInfos[i].childName);
-                } else {
+                }
+                else
+                {
                     Renderer rend = childLocator.FindChild(customInfos[i].childName).GetComponent<Renderer>();
-                    if (rend) {
+                    if (rend)
+                    {
 
                         Material mat = customInfos[i].material;
 
-                        if (mat == null) {
-                            if (customInfos[i].dontHotpoo) {
+                        if (mat == null)
+                        {
+                            if (customInfos[i].dontHotpoo)
+                            {
                                 mat = rend.material;
-                            } else {
+                            }
+                            else
+                            {
                                 mat = rend.material.SetHopooMaterial();
                             }
                         }
 
-                        rendererInfos.Add(new CharacterModel.RendererInfo {
+                        rendererInfos.Add(new CharacterModel.RendererInfo
+                        {
                             renderer = rend,
                             defaultMaterial = mat,
                             ignoreOverlays = customInfos[i].ignoreOverlays,
@@ -270,7 +289,8 @@ namespace RMORMod.Modules {
         //    rigidbody.mass = 100f;
         //}
 
-        private static void SetupCapsuleCollider(GameObject prefab) {
+        private static void SetupCapsuleCollider(GameObject prefab)
+        {
             CapsuleCollider capsuleCollider = prefab.GetComponent<CapsuleCollider>();
             capsuleCollider.center = new Vector3(0f, 0f, 0f);
             capsuleCollider.radius = 0.5f;
@@ -279,10 +299,12 @@ namespace RMORMod.Modules {
         }
 
 
-        private static void SetupMainHurtbox(GameObject prefab, GameObject model) {
+        private static void SetupMainHurtbox(GameObject prefab, GameObject model)
+        {
             ChildLocator childLocator = model.GetComponent<ChildLocator>();
 
-            if (!childLocator.FindChild("MainHurtbox")) {
+            if (!childLocator.FindChild("MainHurtbox"))
+            {
                 Debug.LogWarning("Could not set up main hurtbox: make sure you have a transform pair in your prefab's ChildLocator component called 'MainHurtbox'");
                 return;
             }
@@ -306,7 +328,8 @@ namespace RMORMod.Modules {
 
             hurtBoxGroup.bullseyeCount = 1;
 
-            if (childLocator.FindChild("HeadHurtbox")) {
+            if (childLocator.FindChild("HeadHurtbox"))
+            {
 
                 HurtBox headHurtbox = childLocator.FindChild("HeadHurtbox").gameObject.AddComponent<HurtBox>();
                 headHurtbox.gameObject.layer = LayerIndex.entityPrecise.intVal;
@@ -329,13 +352,16 @@ namespace RMORMod.Modules {
                 headHurtbox.indexInGroup = 1;
             }
         }
-        public static void SetupHurtBoxes(GameObject bodyPrefab) {
+        public static void SetupHurtBoxes(GameObject bodyPrefab)
+        {
 
             HealthComponent healthComponent = bodyPrefab.GetComponent<HealthComponent>();
 
-            foreach (HurtBoxGroup hurtboxGroup in bodyPrefab.GetComponentsInChildren<HurtBoxGroup>()) {
+            foreach (HurtBoxGroup hurtboxGroup in bodyPrefab.GetComponentsInChildren<HurtBoxGroup>())
+            {
                 hurtboxGroup.mainHurtBox.healthComponent = healthComponent;
-                for (int i = 0; i < hurtboxGroup.hurtBoxes.Length; i++) {
+                for (int i = 0; i < hurtboxGroup.hurtBoxes.Length; i++)
+                {
                     hurtboxGroup.hurtBoxes[i].healthComponent = healthComponent;
                 }
             }

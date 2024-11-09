@@ -168,7 +168,7 @@ namespace RMORMod.Modules.Characters
         #region Camera
         public Vector3 aimOriginPosition = new Vector3(0f, 1.6f, 0f);
         public Vector3 modelBasePosition = new Vector3(0f, -0.92f, 0f);
-       
+
         //basically the "height" of your camera
         public Vector3 cameraPivotPosition = new Vector3(0f, 0.8f, 0f);
 
