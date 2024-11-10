@@ -30,7 +30,7 @@ namespace RMORMod.Content.RMORSurvivor.Components.Body
                 this.enemyIndicator.targetTransform = targetTransform;
             }
 
-            if (characterBody.skillLocator.special.stock <= 0)
+            if (characterBody.skillLocator.secondary.stock <= 0)
             {
                 this.enemyIndicator.active = false;
             }
