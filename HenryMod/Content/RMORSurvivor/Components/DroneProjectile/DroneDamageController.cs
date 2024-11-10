@@ -9,6 +9,11 @@ namespace RMORMod.Content.RMORSurvivor.Components.DroneProjectile
 {
     public class DroneDamageController : MonoBehaviour
     {
+        public static ItemIndex droneCoolantIndex;
+        public static void Init()
+        {
+            droneCoolantIndex = ItemCatalog.FindItemIndex("ITEM_DRONE_COOLANT_BOOST");
+        }
 
         public void Awake()
         {
@@ -47,7 +52,6 @@ namespace RMORMod.Content.RMORSurvivor.Components.DroneProjectile
                             droneAttackSpeed += 0.5f * dronePartsCount;
                         }
 
-                        ItemIndex droneCoolantIndex = ItemCatalog.FindItemIndex("ITEM_DRONE_COOLANT_BOOST");
                         if (droneCoolantIndex != ItemIndex.None)
                         {
                             coolantCount = ownerBody.inventory.GetItemCount(droneCoolantIndex);

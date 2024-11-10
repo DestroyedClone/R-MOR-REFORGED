@@ -8,6 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Security;
 using System.Security.Permissions;
 using RMORMod.Modules;
+using System.Text;
+using System;
+using RMORMod.Content.RMORSurvivor.Components.DroneProjectile;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -80,6 +83,12 @@ namespace RMORMod
                 Stage.onStageStartGlobal += SetArena;
             }
             RoR2.RoR2Application.onLoad += AddMechanicalBodies;
+            RoR2.RoR2Application.onLoad += CacheCoolantIndex;
+        }
+
+        private void CacheCoolantIndex()
+        {
+            DroneDamageController.Init();
         }
 
         private void AddMechanicalBodies()
