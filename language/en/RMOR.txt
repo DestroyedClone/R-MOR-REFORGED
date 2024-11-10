@@ -9,7 +9,7 @@
 	"MORIYA_RMOR_BODY_OUTRO_FAILURE" : "..and so it vanished, incapable of its sole duty.",
 	
 	"MORIYA_RMOR_BODY_PASSIVE_NAME" : "SWARM_ASSAULT",
-	"MORIYA_RMOR_BODY_PASSIVE_DESC" : "<style=cIsDamage>Increase attack speed</style> by <style=cIsDamage>5%</style> for every <style=cIsUtility>drone</style> on your team.",\
+	"MORIYA_RMOR_BODY_PASSIVE_DESC" : "<style=cIsDamage>Increase attack speed</style> by <style=cIsDamage>5%</style> for every <style=cIsUtility>drone</style> on your team.",
 
 	"MORIYA_RMOR_BODY_PRIMARY_NAME" : "ERADICATE",
 	"MORIYA_RMOR_BODY_PRIMARY_DESC" : "Shoot a missile which explodes on impact for <style=cIsDamage>390% damage</style>. While <style=cIsHealing>FORTIFY</style> is active, missiles fly faster for <style=cIsUtility>Stun on hit</style>",
@@ -18,26 +18,14 @@
 	"MORIYA_RMOR_BODY_PRIMARY_BLADE_NAME" : "SKEWER",
 	"MORIYA_RMOR_BODY_PRIMARY_BLADE_DESC" : "Stab all combatants for <style=cIsDamage>220% damage</style>. <style=cIsDamage>Bleeds</style> while <style=cIsHealing>FORTIFY</style> is active.",
 	
-	"MORIYA_RMOR_BODY_ALTSECONDARY_NAME" : "FORCED_REASSEMBLY",
-	"MORIYA_RMOR_BODY_ALTSECONDARY_DESC" : "<style=cIsDamage>Bleeding</style>. Charge up and apply great force to all combatants for <style=cIsDamage>600%-1500% damage</style>.",
-	"MORIYA_RMOR_BODY_ALTSECONDARY_SCEPTER_NAME" : "UNETHICAL_REASSEMBLY",
-	"MORIYA_RMOR_BODY_ALTSECONDARY_SCEPTER_DESC" : "<style=cIsDamage>Bleeding</style>. Charge up and apply <style=cIsHealth>OVERWHELMING</style> force to all combatants for <style=cIsDamage>900%-2250% damage</style>.",
-
-	"MORIYA_RMOR_BODY_SECONDARY_NAME" : "CLUSTER_CANNON",
-	"MORIYA_RMOR_BODY_SECONDARY_DESC" : "Charge up and launch a powerful missile for <style=cIsDamage>800%-2400% damage</style>.",
-	"MORIYA_RMOR_BODY_SECONDARY_SCEPTER_NAME" : "OBLIVION_CANNON",
-	"MORIYA_RMOR_BODY_SECONDARY_SCEPTER_DESC" : "Charge up quickly and launch a powerful missile for <style=cIsDamage>800%-3200% damage</style>.",
-	
-	
-	"KEYWORD_MORIYAHANDOVERCLOCKED_BOOST" : "<style=cKeywordName>Boost</style><style=cSub>The skill can be cancelled early to boost upwards.</style>",
-	"KEYWORD_MORIYARMOR_BLEEDING" : "<style=cKeywordName>Bleeding</style><style=cSub>The skill causes bleed on hit.</style>",
-	"KEYWORD_MORIYARMOR_Weaken" : "<style=cKeywordName>Weaken</style><style=cSub>Reduces armor by 30%, reduces movement speed and damage by 40%.</style>",
-	
-	"MORIYA_RMOR_BODY_UTILITY_CANCEL_NAME" : "CANCEL",
-	"MORIYA_RMOR_BODY_UTILITY_CANCEL_DESC" : "<style=cIsUtility>Boost upwards</style>.",
+	"MORIYA_RMOR_BODY_SECONDARY_NAME" : "MISSILE",
+	"MORIYA_RMOR_BODY_SECONDARY_DESC" : "Fires missiles that deal <style=cIsDamage>250% damage</style> and <style=cIsDamage>Weaken</style> on hit. Kills and melee hits <style=cIsUtility>reduce cooldown</style>.",
 	
 	"MORIYA_RMOR_BODY_UTILITY_NAME" : "OVERCLOCK",
 	"MORIYA_RMOR_BODY_UTILITY_DESC" : "<style=cIsUtility>Boost</style>. Increase <style=cIsUtility>movement speed</style> and <style=cIsDamage>attack speed</style> by <style=cIsDamage>40%</style>. Hit enemies to <style=cIsUtility>increase duration</style>.",
+	
+	"MORIYA_RMOR_BODY_UTILITY_CANCEL_NAME" : "CANCEL",
+	"MORIYA_RMOR_BODY_UTILITY_CANCEL_DESC" : "<style=cIsUtility>Boost upwards</style>.",
 	
 	"MORIYA_RMOR_BODY_UTILITY_RMOR_NAME" : "FORTIFY",
 	"MORIYA_RMOR_BODY_UTILITY_RMOR_DESC" : "<style=cIsUtility>Boost</style>. Gain <style=cIsUtility>100 armor</style> and constantly generate <style=cIsUtility>12 Barrier per second</style>. Hit enemies to <style=cIsUtility>increase duration</style>.",
@@ -45,8 +33,19 @@
 	"MORIYA_RMOR_BODY_UTILITY_NEMESIS_NAME" : "FOCUS",
 	"MORIYA_RMOR_BODY_UTILITY_NEMESIS_DESC" : "<style=cIsUtility>Boost</style>. Gain <style=cIsDamage>+50% damage</style> and <style=cIsUtility>50 armor</style>, but lose <style=cIsHealth>-30% movement speed</style>. Hit enemies to <style=cIsUtility>increase duration</style>.",
 	
-	"MORIYA_RMOR_BODY_SPECIAL_NAME" : "MISSILE",
-	"MORIYA_RMOR_BODY_SPECIAL_DESC" : "Fires missiles that deal <style=cIsDamage>250% damage</style> and <style=cIsDamage>Weaken</style> on hit. Kills and melee hits <style=cIsUtility>reduce cooldown</style>.",
+	"MORIYA_RMOR_BODY_SPECIAL_NAME" : "CLUSTER_CANNON",
+	"MORIYA_RMOR_BODY_SPECIAL_DESC" : "Charge up and launch a powerful missile for <style=cIsDamage>800%-2400% damage</style>.",
+	"MORIYA_RMOR_BODY_SPECIAL_SCEPTER_NAME" : "OBLIVION_CANNON",
+	"MORIYA_RMOR_BODY_SPECIAL_SCEPTER_DESC" : "Charge up quickly and launch a powerful missile for <style=cIsDamage>800%-3200% damage</style>.",
+	
+	"MORIYA_RMOR_BODY_ALTSPECIAL_NAME" : "FORCED_REASSEMBLY",
+	"MORIYA_RMOR_BODY_ALTSPECIAL_DESC" : "<style=cIsDamage>Bleeding</style>. Charge up and apply great force to all combatants for <style=cIsDamage>600%-1500% damage</style>.",
+	"MORIYA_RMOR_BODY_ALTSPECIAL_SCEPTER_NAME" : "UNETHICAL_REASSEMBLY",
+	"MORIYA_RMOR_BODY_ALTSPECIAL_SCEPTER_DESC" : "<style=cIsDamage>Bleeding</style>. Charge up and apply <style=cIsHealth>OVERWHELMING</style> force to all combatants for <style=cIsDamage>900%-2250% damage</style>.",
+
+	"KEYWORD_MORIYAHANDOVERCLOCKED_BOOST" : "<style=cKeywordName>Boost</style><style=cSub>The skill can be cancelled early to boost upwards.</style>",
+	"KEYWORD_MORIYARMOR_BLEEDING" : "<style=cKeywordName>Bleeding</style><style=cSub>The skill causes bleed on hit.</style>",
+	"KEYWORD_MORIYARMOR_Weaken" : "<style=cKeywordName>Weaken</style><style=cSub>Reduces armor by 30%, reduces movement speed and damage by 40%.</style>",
 	
 	"ACHIEVEMENT_MORIYARMORSURVIVORUNLOCK_NAME" : "Battle Hardened",
 	"ACHIEVEMENT_MORIYARMORSURVIVORUNLOCK_DESCRIPTION" : "Reach 1000 Armor in a single run.",

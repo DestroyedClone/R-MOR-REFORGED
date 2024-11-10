@@ -9,7 +9,7 @@
 	"MORIYA_RMOR_BODY_OUTRO_FAILURE" : "...і він був стертий, не отримавши винагороди за всі свої зусилля.",
 	
 	"MORIYA_RMOR_BODY_PASSIVE_NAME" : "РОЙОВИЙ_ШТУРМ",
-	"MORIYA_RMOR_BODY_PASSIVE_DESC" : "<style=cIsDamage>Підвищує швидкість атаки</style> на <style=cIsDamage>5%</style> за кожного <style=cIsUtility>дрона</style> в команді.",\
+	"MORIYA_RMOR_BODY_PASSIVE_DESC" : "<style=cIsDamage>Підвищує швидкість атаки</style> на <style=cIsDamage>5%</style> за кожного <style=cIsUtility>дрона</style> в команді.",
 
 	"MORIYA_RMOR_BODY_PRIMARY_NAME" : "ВИКОРІНЕННЯ",
 	"MORIYA_RMOR_BODY_PRIMARY_DESC" : "Стріляє ракетою, що вибухає при контакті, завдаючи <style=cIsDamage>390% шкоди</style>.",
@@ -18,36 +18,33 @@
 	"MORIYA_RMOR_BODY_PRIMARY_BLADE_NAME" : "ШАМПУР",
 	"MORIYA_RMOR_BODY_PRIMARY_BLADE_DESC" : "Штрикає всіх бійців, завдаючи <style=cIsDamage>220% шкоди</style>. Викликає <style=cIsDamage>кровотечу</style>, якщо <style=cIsDamage>УКРІПЛЕННЯ</style> активне.",
 	
-	"MORIYA_RMOR_BODY_ALTSECONDARY_NAME" : "ПРИМУСОВА_ПЕРЕРОБКА",
-	"MORIYA_RMOR_BODY_ALTSECONDARY_DESC" : "<style=cIsDamage>Кровотік</style>. Заряджає і застосовуйте велику силу до всіх бійців, завдаючи <style=cIsDamage>600%-1500% шкоди</style>.",
-	"MORIYA_RMOR_BODY_ALTSECONDARY_SCEPTER_NAME" : "НЕЕТИЧНА_ПЕРЕРОБКА",
-	"MORIYA_RMOR_BODY_ALTSECONDARY_SCEPTER_DESC" : "<style=cIsDamage>Кровотік</style>. Заряджає та застосовує <style=cIsHealth>ПРИГНІЧУЮЧУ</style> силу до всіх бійців, завдаючи <style=cIsDamage>900%-2250% шкоди</style>.",
-	"MORIYA_RMOR_BODY_SECONDARY_NAME" : "КЛАСТЕРНА_ГАРМАТА",
-	"MORIYA_RMOR_BODY_SECONDARY_DESC" : "Заряджає та запускає потужну ракету, що завдає <style=cIsDamage>600%-1800% шкоди</style>.",
-	"MORIYA_RMOR_BODY_SECONDARY_SCEPTER_NAME" : "ГАРМАТА_ЗАБУТТЯ",
-	"MORIYA_RMOR_BODY_SECONDARY_SCEPTER_DESC" : "Швидко заряджає і запускає ракету, що завдає <style=cIsDamage>600%-2400% шкоди</style>.",
-	
-	
-	"KEYWORD_MORIYAHANDOVERCLOCKED_BOOST" : "<style=cKeywordName>Буст</style><style=cSub>Здібність може бути відмінена раніше, щоб підкинути себе вверх.</style>",
-	"KEYWORD_MORIYARMOR_BLEEDING" : "<style=cKeywordName>Кровотік</style><style=cSub>Здібність викликає кровотечу при ударі.</style>",
-	
-	"MORIYA_RMOR_BODY_UTILITY_CANCEL_NAME" : "ВІДМІНА",
-	"MORIYA_RMOR_BODY_UTILITY_CANCEL_DESC" : "<style=cIsUtility>Підкидає вас вверх</style>.",
+	"MORIYA_RMOR_BODY_SECONDARY_NAME" : "РАКЕТА",
+	"MORIYA_RMOR_BODY_SECONDARY_DESC" : "Випускає ракету, що завдає <style=cIsDamage>250% шкоди.</style> Вбивства та удари в ближньому бою <style=cIsUtility>скорочують час перезаряджання</style>.",
 	
 	"MORIYA_RMOR_BODY_UTILITY_NAME" : "РОЗГІН",
 	"MORIYA_RMOR_BODY_UTILITY_DESC" : "<style=cIsUtility>Буст</style>. Підвищує <style=cIsUtility>швидкість пересування</style> та <style=cIsDamage>швидкість атаки</style> на <style=cIsDamage>40%</style>. Удари по ворогам <style=cIsUtility>продовжують тривалість</style>.",
 	
+	"MORIYA_RMOR_BODY_UTILITY_CANCEL_NAME" : "ВІДМІНА",
+	"MORIYA_RMOR_BODY_UTILITY_CANCEL_DESC" : "<style=cIsUtility>Підкидає вас вверх</style>.",
+	
 	"MORIYA_RMOR_BODY_UTILITY_RMOR_NAME" : "УКРІПЛЕННЯ",
-	"MORIYA_RMOR_BODY_UTILITY_RMOR_DESC" : "<style=cIsUtility>Буст</style>. Дає <style=cIsUtility>200 броні</style> та підвищує <style=cIsHealing>регенерацію здоров'я</style> на <style=cIsHealing>10% від вашого макс. ОЗ за секунду</style>. Удари по ворогам <style=cIsUtility>продовжують тривалість</style>.",
+	"MORIYA_RMOR_BODY_UTILITY_RMOR_DESC" : "<style=cIsUtility>Буст</style>. Дає <style=cIsUtility>100 броні</style> та підвищує <style=cIsHealing>регенерацію здоров'я</style> на <style=cIsHealing>12% від вашого макс. ОЗ за секунду</style>. Удари по ворогам <style=cIsUtility>продовжують тривалість</style>.",
 	
 	"MORIYA_RMOR_BODY_UTILITY_NEMESIS_NAME" : "ФОКУС",
 	"MORIYA_RMOR_BODY_UTILITY_NEMESIS_DESC" : "<style=cIsUtility>Буст</style>. Дає <style=cIsDamage>+50% шкоди</style> та <style=cIsUtility>50 броні</style>, але ви втрачаєте <style=cIsHealth>-30% швидкості пересування</style>. Удари по ворогам <style=cIsUtility>продовжують тривалість</style>.",
 	
-	"MORIYA_HAND_BODY_SPECIAL_NAME" : "ДРОН",
-	"MORIYA_HAND_BODY_SPECIAL_DESC" : "Запускає дрона, що завдає <style=cIsDamage>270% шкоди</style> та <style=cIsHealing>лікує на 40% від завданої шкоди</style>. Вбивства та удари в ближньому бою <style=cIsUtility>скорочують час перезаряджання</style>.",
-
-	"MORIYA_RMOR_BODY_SPECIAL_NAME" : "РАКЕТА",
-	"MORIYA_RMOR_BODY_SPECIAL_DESC" : "Випускає ракету, що завдає <style=cIsDamage>600% шкоди.</style> Вбивства та удари в ближньому бою <style=cIsUtility>скорочують час перезаряджання</style>.",
+	"MORIYA_RMOR_BODY_SPECIAL_NAME" : "КЛАСТЕРНА_ГАРМАТА",
+	"MORIYA_RMOR_BODY_SPECIAL_DESC" : "Заряджає та запускає потужну ракету, що завдає <style=cIsDamage>8%-2400% шкоди</style>.",
+	"MORIYA_RMOR_BODY_SPECIAL_SCEPTER_NAME" : "ГАРМАТА_ЗАБУТТЯ",
+	"MORIYA_RMOR_BODY_SPECIAL_SCEPTER_DESC" : "Швидко заряджає і запускає ракету, що завдає <style=cIsDamage>800%-3200% шкоди</style>.",
+	
+	"MORIYA_RMOR_BODY_ALTSPECIAL_NAME" : "ПРИМУСОВА_ПЕРЕРОБКА",
+	"MORIYA_RMOR_BODY_ALTSPECIAL_DESC" : "<style=cIsDamage>Кровотік</style>. Заряджає і застосовуйте велику силу до всіх бійців, завдаючи <style=cIsDamage>600%-1500% шкоди</style>.",
+	"MORIYA_RMOR_BODY_ALTSPECIAL_SCEPTER_NAME" : "НЕЕТИЧНА_ПЕРЕРОБКА",
+	"MORIYA_RMOR_BODY_ALTSPECIAL_SCEPTER_DESC" : "<style=cIsDamage>Кровотік</style>. Заряджає та застосовує <style=cIsHealth>ПРИГНІЧУЮЧУ</style> силу до всіх бійців, завдаючи <style=cIsDamage>900%-2250% шкоди</style>.",
+	
+	"KEYWORD_MORIYAHANDOVERCLOCKED_BOOST" : "<style=cKeywordName>Буст</style><style=cSub>Здібність може бути відмінена раніше, щоб підкинути себе вверх.</style>",
+	"KEYWORD_MORIYARMOR_BLEEDING" : "<style=cKeywordName>Кровотік</style><style=cSub>Здібність викликає кровотечу при ударі.</style>",
 	
 	"ACHIEVEMENT_MORIYARMORSURVIVORUNLOCK_NAME" : "Загартований в боях",
 	"ACHIEVEMENT_MORIYARMORSURVIVORUNLOCK_DESCRIPTION" : "Досягнути 1000 броні за один забіг.",

@@ -53,7 +53,7 @@ namespace EntityStates.RMOR.Primary
             this.hitSoundString = "";
             this.swingSoundString = "Play_RMOR_Punch";
             this.hitboxName = "StabHitbox";
-            this.damageCoefficient = 3.9f;
+            this.damageCoefficient = 2.2f;
             this.procCoefficient = 1f;
             this.baseDuration = 1.3f;
             this.baseEarlyExitTime = 0.35f;
