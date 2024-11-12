@@ -64,7 +64,7 @@ namespace RMORMod.Content.RMORSurvivor
         };
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] {
             new CustomRendererInfo {
-                childName = "RMORBody",
+                childName = "RMORbody",
                 material = Modules.Assets.mainAssetBundle.LoadAsset<Material>("matRMOR"),
             },
             new CustomRendererInfo {
@@ -624,22 +624,16 @@ namespace RMORMod.Content.RMORSurvivor
         {
             GameObject ghostReplacement = PrefabAPI.InstantiateClone(DroneSetup.droneProjectileGhost, skin.nameToken + "DroneGhostReplacement", false);
             SkinnedMeshRenderer ghostDroneRenderer = ghostReplacement.GetComponent<ChildLocator>().FindChildComponent<SkinnedMeshRenderer>("Drone");
-            MeshRenderer ghostSawRenderer = ghostReplacement.GetComponent<ChildLocator>().FindChildComponent<MeshRenderer>("Saw");
 
             SkinDef defaultSkin = RMORSurvivor.instance.bodyPrefab.GetComponentInChildren<ModelSkinController>().skins[0];
 
-            CharacterModel.RendererInfo defaultRendererInfoDrone = defaultSkin.rendererInfos[2];
-            CharacterModel.RendererInfo defaultRendererInfoSaw = defaultSkin.rendererInfos[3];
+            CharacterModel.RendererInfo defaultRendererInfoDrone = defaultSkin.rendererInfos[1];
 
             for (int i = 0; i < skin.rendererInfos.Length; i++)
             {
                 if (skin.rendererInfos[i].renderer == defaultRendererInfoDrone.renderer)
                 {
                     ghostDroneRenderer.material = skin.rendererInfos[i].defaultMaterial;
-                }
-                if (skin.rendererInfos[i].renderer == defaultRendererInfoSaw.renderer)
-                {
-                    ghostSawRenderer.material = skin.rendererInfos[i].defaultMaterial;
                 }
             }
 
@@ -648,10 +642,6 @@ namespace RMORMod.Content.RMORSurvivor
                 if (skin.meshReplacements[i].renderer == defaultRendererInfoDrone.renderer)
                 {
                     ghostDroneRenderer.sharedMesh = skin.meshReplacements[i].mesh;
-                }
-                if (skin.meshReplacements[i].renderer == defaultRendererInfoSaw.renderer)
-                {
-                    ghostSawRenderer.GetComponent<MeshFilter>().mesh = skin.meshReplacements[i].mesh;
                 }
             }
 
