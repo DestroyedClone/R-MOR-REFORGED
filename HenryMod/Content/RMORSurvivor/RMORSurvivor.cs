@@ -499,59 +499,30 @@ namespace RMORMod.Content.RMORSurvivor
                 "meshReimu");
 
             #region Projectiles
-            GameObject ghostP = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("PrimaryStar");
-            if (!ghostP.GetComponent<NetworkIdentity>()) ghostP.AddComponent<NetworkIdentity>();
-            if (!ghostP.GetComponent<ProjectileGhostController>()) ghostP.AddComponent<ProjectileGhostController>();
-            GameObject ghost1 = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Level1Star");
-            if (!ghost1.GetComponent<NetworkIdentity>()) ghost1.AddComponent<NetworkIdentity>();
-            if (!ghost1.GetComponent<ProjectileGhostController>()) ghost1.AddComponent<ProjectileGhostController>();
-            GameObject ghost2 = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Level2Star");
-            if (!ghost2.GetComponent<NetworkIdentity>()) ghost2.AddComponent<NetworkIdentity>();
-            if (!ghost2.GetComponent<ProjectileGhostController>()) ghost2.AddComponent<ProjectileGhostController>();
-            GameObject ghost3 = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Level3Star");
-            if (!ghost3.GetComponent<NetworkIdentity>()) ghost3.AddComponent<NetworkIdentity>();
-            if (!ghost3.GetComponent<ProjectileGhostController>()) ghost3.AddComponent<ProjectileGhostController>();
-            GameObject ghost4 = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Level4Star");
-            if (!ghost4.GetComponent<NetworkIdentity>()) ghost4.AddComponent<NetworkIdentity>();
-            if (!ghost4.GetComponent<ProjectileGhostController>()) ghost4.AddComponent<ProjectileGhostController>();
-            GameObject missile = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("MasteryMissilePrefab");
-            if (!missile.GetComponent<NetworkIdentity>()) missile.AddComponent<NetworkIdentity>();
-            if (!missile.GetComponent<ProjectileGhostController>()) missile.AddComponent<ProjectileGhostController>();
-            HG.ArrayUtils.ArrayAppend(ref masterySkin.projectileGhostReplacements, new SkinDef.ProjectileGhostReplacement
+            GameObject SetupGhost(string assetPath, GameObject projectilePrefab)
             {
-                projectilePrefab = PrimaryRocket.projectilePrefab,
-                projectileGhostReplacementPrefab = ghostP
-            });
+                GameObject ghost = RMORMod.Modules.Assets.mainAssetBundle.LoadAsset<GameObject>(assetPath);
+                if (!ghost.GetComponent<NetworkIdentity>()) ghost.AddComponent<NetworkIdentity>();
+                if (!ghost.GetComponent<ProjectileGhostController>()) ghost.AddComponent<ProjectileGhostController>();
+
+                HG.ArrayUtils.ArrayAppend(ref masterySkin.projectileGhostReplacements, new SkinDef.ProjectileGhostReplacement
+                {
+                    projectilePrefab = projectilePrefab,
+                    projectileGhostReplacementPrefab = ghost
+                });
+                return ghost;
+            }
+            GameObject ghostP = SetupGhost("PrimaryStar", PrimaryRocket.projectilePrefab);
             HG.ArrayUtils.ArrayAppend(ref masterySkin.projectileGhostReplacements, new SkinDef.ProjectileGhostReplacement
             {
                 projectilePrefab = PrimaryRocket.overclockPrefab,
                 projectileGhostReplacementPrefab = ghostP
             });
-            HG.ArrayUtils.ArrayAppend(ref masterySkin.projectileGhostReplacements, new SkinDef.ProjectileGhostReplacement
-            {
-                projectilePrefab = FireCannon.level1Prefab,
-                projectileGhostReplacementPrefab = ghost1
-            }) ;
-            HG.ArrayUtils.ArrayAppend(ref masterySkin.projectileGhostReplacements, new SkinDef.ProjectileGhostReplacement
-            {
-                projectilePrefab = FireCannon.level2Prefab,
-                projectileGhostReplacementPrefab = ghost2
-            });
-            HG.ArrayUtils.ArrayAppend(ref masterySkin.projectileGhostReplacements, new SkinDef.ProjectileGhostReplacement
-            {
-                projectilePrefab = FireCannon.level3Prefab,
-                projectileGhostReplacementPrefab = ghost3
-            });
-            HG.ArrayUtils.ArrayAppend(ref masterySkin.projectileGhostReplacements, new SkinDef.ProjectileGhostReplacement
-            {
-                projectilePrefab = FireCannon.level4Prefab,
-                projectileGhostReplacementPrefab = ghost4
-            });
-            HG.ArrayUtils.ArrayAppend(ref masterySkin.projectileGhostReplacements, new SkinDef.ProjectileGhostReplacement
-            {
-                projectilePrefab = FireSeekingDrone.projectilePrefab,
-                projectileGhostReplacementPrefab = missile
-            });
+            SetupGhost("Level1Star", FireCannon.level1Prefab);
+            SetupGhost("Level2Star", FireCannon.level2Prefab);
+            SetupGhost("Level3Star", FireCannon.level3Prefab);
+            SetupGhost("Level4Star", FireCannon.level4Prefab);
+            SetupGhost("MasteryMissilePrefab", FireSeekingDrone.projectilePrefab);
             #endregion
 
             masterySkin.rendererInfos[0].defaultMaterial = Modules.Assets.mainAssetBundle.LoadAsset<Material>("matRMORMastery");
